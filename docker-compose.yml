@@ -1,0 +1,7 @@
+version: '3'
+services:
+
+  angular-ct:
+   image: angular_client5
+   ports:
+     - "4200:4200"

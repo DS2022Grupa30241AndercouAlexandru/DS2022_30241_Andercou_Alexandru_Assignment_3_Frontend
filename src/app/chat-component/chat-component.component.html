@@ -1,0 +1,50 @@
+
+<div class="chatbox" id="chatbox"> 
+
+
+<div  id="chat" class="chat" draggable="true" >
+
+    <div id="header" class="header">
+
+    <button id="icn" (click)= "reduce_size()">
+     <i id="iicn" class="fa fa-close" ></i>
+    </button> 
+    <p id="chat-title">to user:</p>
+
+    </div>
+    <hr>
+
+
+   <div   class="messages" id="messages" >
+
+
+        <div id="user_messages">
+
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+    <div class="typing_messages" id="typing_messages"> 
+
+
+
+           <p id="someone_watching"></p>
+           <p  class="typing" id="typing"></p>
+
+         
+        </div>
+        </div>
+
+<div class="inputs" id="inputs">
+
+    <input  id="input" class="input" (input)= "add_typing()" >
+    <input  type="image" src="assets/send.jpg" (click)= "sendm()" width="50px" height= "55px" >
+
+</div>

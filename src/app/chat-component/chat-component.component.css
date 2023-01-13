@@ -1,0 +1,43 @@
+.inputs
+{
+
+background-color:rgb(112, 236, 236) ;
+display:flex;
+width:350px;
+margin-left:10px
+}
+.input
+{
+    width:300px;
+    height: 50px;
+    
+
+}
+.chatbox
+{
+    height:max-content
+}
+
+
+.messages
+{
+    overflow-y: scroll;
+    height:200px
+  
+}
+.messages div p
+{
+    background-color: rgb(9, 38, 186);
+}
+
+.chat
+{   height:350px;
+    width:350px;
+    background-color:white;
+    overflow-x:hidden;
+    cursor:move;
+    display:block;
+    margin: 10px;
+    margin-bottom: 0px;
+    border: 2px solid black
+}

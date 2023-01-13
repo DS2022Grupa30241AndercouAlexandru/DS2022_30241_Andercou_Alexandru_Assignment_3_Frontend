@@ -1,0 +1,17 @@
+html
+{
+
+    background-color: gainsboro;
+    width:100vw;
+    min-height:82vh;
+}
+footer
+{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    justify-content: top;
+    height:50px;
+    width:100vw;
+
+}

@@ -1,0 +1,97 @@
+
+
+
+<body id="body">
+    <H1 id="title">Welcome to your user Page</H1>
+    
+
+    <div id="table_section">
+        <p>Your associated Devices</p>
+        <br>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="this.dtTrigger"
+            class="table table-bordered table-striped table-hover" id="devices">
+
+            <thead>
+                <tr>
+                    <th>Device id</th>
+                    <th>Nume</th>
+                    <th>description</th>
+                    <th>Max hourly Consume</th>
+                    <th>Adress</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let device of this.devices">
+                    <td>{{ device.id }}</td>
+
+                    <td>{{ device.name}}</td>
+
+                    <td>{{ device.description }}</td>
+                    <td>{{ device.maximumHourlyEnergyConsumption }}</td>
+                    <td>{{ device.address }}</td>
+
+
+                </tr>
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+    <br>
+    <br>
+
+    <p>Choose device by id</p>
+    <input id="dsearch" type="text">
+    <button   (click)="do_search()">Send</button>
+   
+     <br>
+     <br>
+
+     <table    class=" hidden table  table-bordered table-striped table-hover"id="tbduid">
+        <thead>
+        <tr>
+            <th>Device id</th>
+            <th>Nume device</th>
+            <th>Description Device</th>
+            <th>Adress of device</th>
+            <th>maximum hourly consumption</th>
+        </tr>
+    </thead>
+    <tbody id="dtb">
+
+
+    </tbody>
+ 
+
+    </table>
+     
+
+    <p>Notification:</p>
+    <div id="notifis_div">
+
+    </div>
+
+
+
+   <div id="charts_section">
+        <p>Devices charts</p>
+        <br>
+          <br>
+        <p id="devicename"></p>
+        <form>
+        <label for="date">Choose Day:</label>
+        <input type="date" id="date" (input)= "setDate()">
+        </form>
+
+
+            <div id = "container" ></div>
+   </div>
+
+<div id="chat-container">
+    <ng-template appChatDirective></ng-template>
+</div>
+</body>
+

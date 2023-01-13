@@ -1,0 +1,42 @@
+syntax="proto3";
+
+
+service ChatService {
+   rpc GetMessage(Normal) returns (Message) {}
+   rpc ReadTypingMessages(Normal) returns (stream Message) {}
+   rpc SendTypingMessage(Normal2) returns (EmptyMessage) {}
+   rpc ListNotifications(Normal) returns (stream Message) {}
+
+   rpc ListMessages(Normal) returns (stream Message) {}
+   rpc SendMessage(Normal2 ) returns (Message){}
+   rpc DeleteMessage(ForDeletion)  returns(EmptyMessage){}
+}
+
+message Normal {
+  int64 from = 1;
+  int64 to=2;
+  string type=3;
+}
+
+message ForDeletion
+{
+  int64 messageId=1;
+
+}
+
+message Normal2{
+  int64 from = 1;
+  int64 to=2;
+   string  messageToSend= 3; 
+   string type=4;
+}
+
+message Message {
+   string  messageToSend= 1;
+   string type=2;
+   int64 id=3;
+}
+message EmptyMessage
+{
+
+}
