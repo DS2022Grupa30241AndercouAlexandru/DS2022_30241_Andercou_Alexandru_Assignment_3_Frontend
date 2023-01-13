@@ -361,6 +361,14 @@ export class UserPageComponent implements OnInit {
 
   searchDeviceById(id: number) {
     this.httpc.get(this.url13 + "/" + id,{ headers: this.headers }).subscribe(response => {
+   
+
+      var data:any=response
+      if(data.owner==null || this.user.id!=data.owner)
+         {alert("device does not belong to user ,can't display its data")
+         return;
+         }
+
       this.device_search = response;
       this.device_searched=true;
       var dname= document.getElementById("devicename");
