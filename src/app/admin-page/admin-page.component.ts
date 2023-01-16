@@ -572,40 +572,49 @@ makeChat()
 
     var row = document.createElement("tr");
 
-    for (let [key, value] of Object.entries(user)) {
-
       var elem = document.createElement("td");
       var input = document.createElement("input");
-        input.className="user_"+key;
-      if(key=='id')
-      {
-        input.disabled=true;
-      
-      }
 
-      if (value) {
-        if (value instanceof Object && "type" in value && "username" in value) {
-          console.log(value)
-          nextElm = (value as any).username
-          input.className="type";
-          input.value = String((value as any).type)
-        }
-        else
-          if (value instanceof Object) {
-            input.value = String(nextElm);
-            input.className="username";
-          }
-          else
-          {
-            input.value = String(value);
-          }
-           
-      }
 
-      elem.appendChild(input);
-      row.appendChild(elem);
 
-    }
+      input.value=user["name"]
+        input.className="user_"+"name";
+        if(user && user.name)
+        input.value=user.name
+
+
+        elem.append(input)
+        row.append(elem)
+
+
+
+        elem = document.createElement("td");
+        input = document.createElement("input");
+
+        if(user && user.role && user.role.type)
+        input.value=user.role.type
+
+        elem.append(input)
+        row.append(input)
+
+         elem = document.createElement("td");
+        input = document.createElement("input");
+        if(user && user.role && user.role.username)
+        input.value=user.role.username
+
+        elem.append(input)
+        row.append(elem)
+
+         elem = document.createElement("td");
+         input = document.createElement("input");
+         if(user && user.id)
+         input.value=user.id
+ 
+
+
+        elem.append(input)
+        row.append(elem)
+
 
     if (tb)
       tb.appendChild(row);
