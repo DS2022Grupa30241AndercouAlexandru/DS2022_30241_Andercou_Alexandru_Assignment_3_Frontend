@@ -43,6 +43,9 @@ export class GrpcService {
       var metadata = new grpc.Metadata();
       metadata.set('Content-Type', 'application/grpc')
 
+      const m2={messagetosend:message,type:"my"}
+      this.messages.push(m2);
+      console.log("messages in frpc:",this.messages)
       this.client.sendMessage(m,metadata,(err,response)=>{
         
         if(err)
@@ -70,8 +73,19 @@ export class GrpcService {
     var metadata = new grpc.Metadata();
     metadata.set('Content-Type', 'application/grpc')
     
+    
+    const m2={messagetosend:message,type:"my"}
+    this.messages.push(m2);
+
+    
+        console.log("messages in frpc:",this.messages)
+
+
       this.client.sendMessage(m,metadata,(err,response)=>{
-        
+      
+
+
+
         if(err)
         {
           console.log('an error occured',err);

@@ -216,9 +216,7 @@ sendm()
   var inp=document.getElementById(this.inputId)
   
   if(inp && inp instanceof HTMLInputElement)
-
   {
-    this. messages.push(this.userString+":"+"<br/>"+inp.value)
 
 
     //alert("duh ya uuuu"+this.userType)
@@ -228,7 +226,7 @@ sendm()
       this.service.sendNormalMessageToAdmin(this.userF.id,inp.value)
   
 
-
+      this.render_messages(this.service.messages)
 
 
    }
@@ -241,24 +239,34 @@ sendm()
 render_messages(msg:any)
 {
 
-  
+
   var elm=document.getElementById(this.userm);
   if(elm)
-  elm.innerHTML=""
-
+  {elm.innerHTML=""  
+   
+}
+  console.log("messages in renderer",msg)
 for(let m of msg)
 {
   if(m.type=="normal")
   {
+var dv=document.createElement("div") 
+dv.style.display="flex"
+dv.style.justifyContent="flex-start"
 var p=document.createElement("p") 
    p.innerHTML=m.messagetosend
    p.style.backgroundColor="#294cff"
    p.style.width="max-content"
+   p.style.height="max-content"
+   p.style.height=p.style.height+50
    p.style.borderRadius="5px"
    p.style.color="white"
+   p.style.wordWrap="break-word"
+   p.style.whiteSpace="normal"
+   dv.appendChild(p)
+elm?.appendChild(dv)
 
 
-elm?.appendChild(p)
 var readSection=document.getElementById(this.readId)
     if(readSection instanceof HTMLParagraphElement)
         readSection.textContent=" "
@@ -274,11 +282,31 @@ var readSection=document.getElementById(this.readId)
 
      }
   }
+  else
+  if(m.type=="my")
+  {
+
+    var dv=document.createElement("div") 
+    dv.style.display="flex"
+
+    var p=document.createElement("p") 
+    p.innerHTML=m.messagetosend
+    dv.style.justifyContent="flex-end"
+    p.style.backgroundColor="#294cff"
+    p.style.width="max-content"
+    p.style.height="max-content"
+    p.style.height=p.style.height+50
+    p.style.borderRadius="5px"
+    p.style.color="white"
+
+    dv.appendChild(p)
+    elm?.appendChild(dv)
+  }
 
 
 
   }
-
+ 
 }
 
 
