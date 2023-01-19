@@ -227,7 +227,9 @@ sendm()
   
 
       this.render_messages(this.service.messages)
-
+      var readSection=document.getElementById(this.readId)
+      if(readSection instanceof HTMLParagraphElement)
+          readSection.textContent=" "
 
    }
  
